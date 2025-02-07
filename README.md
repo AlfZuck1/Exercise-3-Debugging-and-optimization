@@ -37,4 +37,24 @@ This message means that an error ocurred during a database transaction, so the r
 [2025-02-03 10:16:09] ERROR Transaction rolled back due to error.
 [2025-02-03 10:16:10] INFO  Server shutting down...
 ```
+## Solutions
+To resolve the KeyError, I implemented a method that displays all the users if the "id" parameter is not present in the GET request and sends an error telling the user that the "id" parameter is missing.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/94b60362-2c20-4016-8a32-98eb80f9b052" width="500"/>
+<img src="https://github.com/user-attachments/assets/6fba5463-2856-456b-8710-b48d65a80b64" width="500"/>
+</p>
+
+To resolve the IntegrityError: UNIQUE contraint, I implemented a method that checks if the "id" already exists in the orders table. If it does, then a PUT request is made to update with the provided information. If the "id" is not duplicated, then the POST request is normally made.
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/dcfc7858-80b9-4a6f-8c10-c7c62d2c8db8" width="500"/>
+<img src="https://github.com/user-attachments/assets/1346880a-c934-4b85-8916-743aee11a5e1" width="500"/>
+</p>
+
+
+
+
+
+
 
