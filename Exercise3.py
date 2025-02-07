@@ -107,7 +107,8 @@ def create_order():
         # El id de la orden ya existe, por lo que lo modificamos con la nueva información
         if order: 
             modify_order(order_data["id"], order_data["user_id"], order_data["total"])
-            return jsonify({"message" : "Order ID already existed, the order was updated"}), 200
+            return jsonify({"message" : "Order ID already existed",
+                            "order" : order}), 200
         # El id de la orden no existe, entonces se puede crear
         else: 
             insert_order(order_data["id"], order_data["user_id"], order_data["total"]) 
