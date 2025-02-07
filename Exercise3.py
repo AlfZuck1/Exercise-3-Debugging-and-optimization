@@ -93,7 +93,7 @@ def get_user_api():
         # Si no está el parametro, se muestran todos los usuarios
         else: 
             users = get_users()
-            return jsonify({"error" : "Missing 'id' parameter", "users": users}), 200
+            return jsonify({"message" : "Missing 'id' parameter", "users": users}), 200
     except TypeError:  
         return jsonify({"error": "Inappropriate argument type"}), 400
 
@@ -108,7 +108,7 @@ def create_order():
         if order: 
             modify_order(order_data["id"], order_data["user_id"], order_data["total"])
             return jsonify({"message" : "Order ID already existed",
-                            "order" : order}), 200
+                            "order" : order_data}), 200
         # El id de la orden no existe, entonces se puede crear
         else: 
             insert_order(order_data["id"], order_data["user_id"], order_data["total"]) 
