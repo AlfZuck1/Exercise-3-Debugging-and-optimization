@@ -9,8 +9,9 @@ def first_db_connection():
     conn = sqlite3.connect("persistent.db")  # Base de datos persistente para realización de pruebas de manera correcta
     conn.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT);")
     conn.execute("CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY, user_id INTEGER, total REAL);")
+    # Usuario de prueba que se crea solo si no existe
     conn.execute("INSERT INTO users (id, name) SELECT 123, 'John Doe'" +
-                 "WHERE NOT EXISTS (SELECT 1 FROM users WHERE id = 123)")  # Usuario de prueba que se crea solo si no existe
+                 "WHERE NOT EXISTS (SELECT 1 FROM users WHERE id = 123)")  
     # Usuarios de prueba adicionales para la muestra de todos los usuarios cuando no se presenta el parámetro 'id'
     conn.execute("INSERT INTO users (id, name) SELECT 235, 'Pedro Salazar'" +
                  "WHERE NOT EXISTS (SELECT 1 FROM users WHERE id = 235)")  
